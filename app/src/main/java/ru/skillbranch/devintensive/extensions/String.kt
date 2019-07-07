@@ -1,10 +1,5 @@
 package ru.skillbranch.devintensive.extensions
 
-/**
- * @author Space
- * @date 07.07.2019
- */
-
 fun String.truncate(till: Int = 16) = trim().run {
     when {
         length <= till -> this

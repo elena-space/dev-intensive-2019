@@ -7,11 +7,6 @@ import java.util.*
 import kotlin.math.abs
 
 
-/**
- * @author Space
- * @date 28.06.2019
- */
-
 enum class TimeUnits(val durationInMs: Long, val one: String, val few: String, val many: String) {
     SECOND(1000L, "секунду", "секунды", "секунд"),
     MINUTE(60000L, "минуту", "минуты", "минут"),

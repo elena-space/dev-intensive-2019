@@ -2,11 +2,6 @@ package ru.skillbranch.devintensive.models
 
 import java.util.*
 
-/**
- * @author Space
- * @date 29.06.2019
- */
-
 abstract class BaseMessage(
     val id: String,
     val from: User?,

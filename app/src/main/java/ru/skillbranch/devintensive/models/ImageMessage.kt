@@ -3,11 +3,6 @@ package ru.skillbranch.devintensive.models
 import ru.skillbranch.devintensive.extensions.humanizeDiff
 import java.util.*
 
-/**
- * @author Space
- * @date 29.06.2019
- */
-
 class ImageMessage(
     id: String,
     from: User?,

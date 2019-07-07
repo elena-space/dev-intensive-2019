@@ -1,10 +1,5 @@
 package ru.skillbranch.devintensive.models
 
-/**
- * @author Space
- * @date 29.06.2019
- */
-
 class UserView(val id: String,
                val fullName: String,
                val nickName: String,

@@ -3,11 +3,6 @@ package ru.skillbranch.devintensive.models
 import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
-/**
- * @author Space
- * @date 27.06.2019
- */
-
 data class User(val id: String,
                 var firstName: String?,
                 var lastName: String?,

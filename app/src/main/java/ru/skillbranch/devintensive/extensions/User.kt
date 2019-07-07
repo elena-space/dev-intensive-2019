@@ -4,11 +4,6 @@ import ru.skillbranch.devintensive.models.User
 import ru.skillbranch.devintensive.models.UserView
 import ru.skillbranch.devintensive.utils.Utils
 
-/**
- * @author Space
- * @date 29.06.2019
- */
-
 fun User.toUserView(): UserView {
     val nickname = Utils.transliteration("$firstName $lastName")
     val initials = Utils.toInitials(firstName, lastName)

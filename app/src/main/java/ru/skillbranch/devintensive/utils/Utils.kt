@@ -1,10 +1,5 @@
 package ru.skillbranch.devintensive.utils
 
-/**
- * @author Space
- * @date 28.06.2019
- */
-
 object Utils {
 
     fun parseFullName(fullName: String?) = when {
