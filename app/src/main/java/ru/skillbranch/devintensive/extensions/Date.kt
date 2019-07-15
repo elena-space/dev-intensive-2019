@@ -1,6 +1,7 @@
 package ru.skillbranch.devintensive.extensions
 
 import android.util.Log
+import ru.skillbranch.devintensive.utils.with
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -12,15 +13,13 @@ enum class TimeUnits(val durationInMs: Long, val one: String, val few: String, v
     MINUTE(60000L, "минуту", "минуты", "минут"),
     HOUR(3600000L, "час", "часа", "часов"),
     DAY(86400000L, "день", "дня", "дней");
+}
 
-    fun plural(value: Int): String {
-        val tens = value % 100 / 10
-        val ones = value % 10
-        return when {
-            tens == 1 || ones == 0 || ones >= 5 -> "$value $many"
-            ones == 1 -> "$value $one"
-            else -> "$value $few"
-        }
+fun TimeUnits.plural(value: Int): String = with(value % 100 / 10, value % 10) { tens, ones ->
+    when {
+        tens == 1 || ones == 0 || ones >= 5 -> "$value $many"
+        ones == 1 -> "$value $one"
+        else -> "$value $few"
     }
 }
 

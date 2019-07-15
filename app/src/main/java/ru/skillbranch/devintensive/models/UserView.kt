@@ -13,7 +13,7 @@ class UserView(val id: String,
             fullName: $fullName
             nickName: $nickName
             avatar: $avatar 
-            status: $status 
+            currentStatus: $status 
             initials: $initials
         """.trimIndent())
     }

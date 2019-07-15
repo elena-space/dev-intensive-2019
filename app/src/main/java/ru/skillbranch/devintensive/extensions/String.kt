@@ -8,5 +8,5 @@ fun String.truncate(till: Int = 16) = trim().run {
 }
 
 fun String.stripHtml() = replace("&(?:[a-z\\d]+|#\\d+|#x[a-f\\d]+);".toRegex(), "")
-    .replace("<(.|\\n)*?>".toRegex(), "")
-    .replace("[ ]+".toRegex(), " ")
+        .replace("<(.|\\n)*?>".toRegex(), "")
+        .replace("[ ]+".toRegex(), " ")
