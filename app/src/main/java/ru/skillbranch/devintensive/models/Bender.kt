@@ -1,15 +1,26 @@
 package ru.skillbranch.devintensive.models
 
+import android.os.Bundle
 import ru.skillbranch.devintensive.models.Bender.Question.NAME
 import ru.skillbranch.devintensive.models.Bender.Status.NORMAL
+import ru.skillbranch.devintensive.utils.ARGBColor
 import ru.skillbranch.devintensive.utils.next
 
-class Bender(var currentStatus: Status = NORMAL,
-             var currentQuestion: Question = NAME) {
+class Bender(private var currentStatus: Status = NORMAL,
+             private var currentQuestion: Question = NAME) {
+
+    constructor(bundle: Bundle?) : this() {
+        bundle?.run {
+            currentStatus = Status.valueOf(getString(KEY_STATUS, NORMAL.name))
+            currentQuestion = Question.valueOf(getString(KEY_QUESTION, NAME.name))
+        }
+    }
+
+    val currentColor get() = currentStatus.color
 
     fun askQuestion() = currentQuestion.text
 
-    fun listenAnswer(answer: String): Pair<String, Color> = with(currentQuestion) {
+    fun listenAnswer(answer: String): Pair<String, ARGBColor> = with(currentQuestion) {
         when {
             this == Question.IDLE -> text
             !isValid(answer) -> "$validationErrorMessage\n$text"
@@ -19,38 +30,34 @@ class Bender(var currentStatus: Status = NORMAL,
         } to currentStatus.color
     }
 
+    fun saveState(bundle: Bundle?) = bundle?.apply {
+        putString(KEY_STATUS, currentStatus.name)
+        putString(KEY_QUESTION, currentQuestion.name)
+    }
+
     private fun resetQuestion(): Question {
         currentQuestion = NAME
         return currentQuestion
     }
 
-    class Color(val r: Int, val g: Int, val b: Int) {
-        companion object {
-            val WHITE = Color(255, 255, 255)
-            val ORANGE = Color(255, 120, 0)
-            val RED = Color(255, 0, 60)
-            val RED_BRIGHT = Color(255, 0, 0)
-        }
-    }
-
-    enum class Status(val color: Color) {
-        NORMAL(Color.WHITE),
-        WARNING(Color.ORANGE),
-        DANGER(Color.RED),
-        CRITICAL(Color.RED_BRIGHT);
+    enum class Status(val color: ARGBColor) {
+        NORMAL(ARGBColor.WHITE),
+        WARNING(ARGBColor.ORANGE),
+        DANGER(ARGBColor.RED),
+        CRITICAL(ARGBColor.RED_BRIGHT);
 
         operator fun inc() = next()
     }
 
     enum class Question(val text: String, private val possibleAnswers: List<String>, val isValid: (String) -> Boolean, val validationErrorMessage: String) {
         NAME("Как меня зовут?", listOf("бендер", "bender"),
-                { it.isNotEmpty() && it[0].isUpperCase() }, "Имя должно начинаться с заглавной буквы"),
+                { it.firstOrNull()?.isUpperCase() ?: false }, "Имя должно начинаться с заглавной буквы"),
 
         PROFESSION("Назови мою профессию?", listOf("сгибальщик", "bender"),
-                { it.isNotEmpty() && it[0].isLowerCase() }, "Профессия должна начинаться со строчной буквы"),
+                { it.firstOrNull()?.isLowerCase() ?: false }, "Профессия должна начинаться со строчной буквы"),
 
         MATERIAL("Из чего я сделан?", listOf("металл", "дерево", "metal", "iron", "wood"),
-                { it.isNotEmpty() && !it.contains(Regex("\\d")) }, "Материал не должен содержать цифр"),
+                { Regex("[A-Za-z_ /-]+").matches(it) }, "Материал не должен содержать цифр"),
 
         BDAY("Когда меня создали?", listOf("2993"),
                 { Regex("\\d+").matches(it) }, "Год моего рождения должен содержать только цифры"),
@@ -68,7 +75,7 @@ class Bender(var currentStatus: Status = NORMAL,
     }
 
     companion object {
-        const val KEY_QUESTION = "KEY_QUESTION"
-        const val KEY_STATUS = "KEY_STATUS"
+        private const val KEY_QUESTION = "KEY_QUESTION"
+        private const val KEY_STATUS = "KEY_STATUS"
     }
 }
