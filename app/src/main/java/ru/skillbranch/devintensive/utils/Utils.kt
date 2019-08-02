@@ -31,7 +31,7 @@ object Utils {
                 } else if (j == abcCyr.size - 1) stringBuilder.append(payload[i])
         }
         val str = stringBuilder.toString()
-        return if (divider != " ") str.replace(" ", divider) else str
+        return if (divider != " ") str.trim().replace(" ", divider) else str
     }
 
     fun toInitials(firstName: String?, lastName: String?) = when {

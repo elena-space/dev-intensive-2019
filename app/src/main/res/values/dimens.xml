@@ -1,20 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Fonts // English and English-like scripts -->
+    <dimen name="font_10">10sp</dimen>
+    <dimen name="font_12">12sp</dimen>
+    <dimen name="font_14">14sp</dimen>
+    <dimen name="font_16">16sp</dimen>
+    <dimen name="font_18">18sp</dimen>
+    <dimen name="font_20">20sp</dimen>
+    <dimen name="font_24">24sp</dimen>
+    <dimen name="font_34">34sp</dimen>
+    <dimen name="font_40">40sp</dimen>
+    <dimen name="font_45">45sp</dimen>
+    <dimen name="font_56">56sp</dimen>
+    <dimen name="font_64">64sp</dimen>
+    <dimen name="font_72">72sp</dimen>
+    <dimen name="font_80">80sp</dimen>
+    <dimen name="font_112">112sp</dimen>
 
-    <!-- font sizes -->
-    <dimen name="font_large_24">24sp</dimen>
-    <dimen name="font_normal_16">16sp</dimen>
-    <dimen name="font_small_12">12sp</dimen>
+    <!-- Sizes // Determines the height of content blocks.-->
+    <dimen name="size_2">2dp</dimen>
+    <dimen name="size_4">4dp</dimen>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+    <dimen name="size_24">24dp</dimen>
+    <dimen name="size_32">32dp</dimen>
+    <dimen name="size_40">40dp</dimen>
+    <dimen name="size_48">48dp</dimen>
+    <dimen name="size_56">56dp</dimen>
+    <dimen name="size_64">64dp</dimen>
+    <dimen name="size_68">64dp</dimen>
+    <dimen name="size_72">72dp</dimen>
+    <dimen name="size_80">80dp</dimen>
+    <dimen name="size_88">88dp</dimen>
+    <dimen name="size_112">112dp</dimen>
+    <dimen name="size_128">128dp</dimen>
+    <dimen name="size_132">132dp</dimen>
 
-    <!-- typical spacing between two views -->
-    <dimen name="spacing_huge_32">32dp</dimen>
-    <dimen name="spacing_large_24">24dp</dimen>
-    <dimen name="spacing_normal_16">16dp</dimen>
-    <dimen name="spacing_small_6">8dp</dimen>
-    <dimen name="spacing_tiny_4">4dp</dimen>
+    <!-- Spaces // Determine placement of type and icons from edges of elements. -->
+    <!-- The text box offset is set to Leading (Type > Area Type Options).-->
+    <dimen name="spacing_4">4dp</dimen>
+    <dimen name="spacing_8">8dp</dimen>
+    <dimen name="spacing_16">16dp</dimen>
+    <dimen name="spacing_24">24dp</dimen>
+    <dimen name="spacing_28">28dp</dimen>
+    <dimen name="spacing_32">32dp</dimen>
+    <dimen name="spacing_40">40dp</dimen>
+    <dimen name="spacing_48">48dp</dimen>
+    <dimen name="spacing_56">56dp</dimen>
+    <dimen name="spacing_64">64dp</dimen>
+    <dimen name="spacing_72">72dp</dimen>
+    <dimen name="spacing_80">80dp</dimen>
+    <dimen name="spacing_96">96dp</dimen>
 
-    <!-- UI views sizes -->
-    <dimen name="button_size_24">24dp</dimen>
-    <dimen name="bender_image_minHeight">100dp</dimen>
+    <!-- Lines -->
+    <dimen name="line_size_1">1dp</dimen>
+
+    <!--Other-->
+    <dimen name="profile_rounded_btn_size_40">40dp</dimen>
+    <dimen name="profile_rounded_avatar_size">112dp</dimen>
+    <dimen name="profile_rounded_btn_margin_top">36dp</dimen>
+    <dimen name="profile_divider_margin">5dp</dimen>
 
 </resources>
