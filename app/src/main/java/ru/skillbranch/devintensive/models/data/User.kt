@@ -1,4 +1,4 @@
-package ru.skillbranch.devintensive.models
+package ru.skillbranch.devintensive.models.data
 
 import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
@@ -36,14 +36,14 @@ data class User(val id: String,
         fun isOnline(b: Boolean) = apply { isOnline = b }
 
         fun build() = User(
-            if (id.isBlank()) "${++lastId}" else id,
-            firstName,
-            lastName,
-            avatar,
-            rating,
-            respect,
-            lastVisit,
-            isOnline)
+                if (id.isBlank()) "${++lastId}" else id,
+                firstName,
+                lastName,
+                avatar,
+                rating,
+                respect,
+                lastVisit,
+                isOnline)
     }
 
     companion object Factory {
