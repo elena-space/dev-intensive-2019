@@ -34,7 +34,7 @@ class ProfileViewModel : ViewModel(), IProfileViewModel {
     override fun saveProfileData(profile: Profile) = with(if (isRepositoryErrorVisible.value == true) profile.copy(repository = "") else profile) {
         PreferencesRepository.saveProfile(this)
         profileData.value = this
-//        isRepositoryErrorVisible.value = false
+        isRepositoryErrorVisible.value = false
     }
 
     override fun switchTheme() {

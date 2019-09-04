@@ -23,6 +23,8 @@
         android:layout_width="@dimen/profile_rounded_avatar_size"
         android:layout_height="@dimen/profile_rounded_avatar_size"
         android:src="@drawable/avatar_default"
+        app:cv_borderOverlay="true"
+        app:cv_borderWidth="2dp"
         app:layout_constraintBottom_toTopOf="@+id/tv_nick_name"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.5"
