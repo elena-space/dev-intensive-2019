@@ -12,6 +12,8 @@ data class User(val id: String,
                 var lastVisit: Date? = null,
                 var isOnline: Boolean = false) {
 
+    val fullName get() = "${firstName.orEmpty()} ${lastName.orEmpty()}"
+
     constructor(id: String, firstName: String?, lastName: String?) : this(id, firstName, lastName, null)
 
     constructor(id: String) : this(id, "John", "Doe $id")

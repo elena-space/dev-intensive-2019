@@ -1,27 +1,11 @@
 package ru.skillbranch.devintensive.extensions
 
 import android.util.Log
-import ru.skillbranch.devintensive.utils.with
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.abs
 
-
-enum class TimeUnits(val durationInMs: Long, val one: String, val few: String, val many: String) {
-    SECOND(1000L, "секунду", "секунды", "секунд"),
-    MINUTE(60000L, "минуту", "минуты", "минут"),
-    HOUR(3600000L, "час", "часа", "часов"),
-    DAY(86400000L, "день", "дня", "дней");
-}
-
-fun TimeUnits.plural(value: Int): String = with(value % 100 / 10, value % 10) { tens, ones ->
-    when {
-        tens == 1 || ones == 0 || ones >= 5 -> "$value $many"
-        ones == 1 -> "$value $one"
-        else -> "$value $few"
-    }
-}
 
 fun String.toDate(pattern: String = "HH:mm:ss dd.MM.yy"): Date? = try {
     SimpleDateFormat(pattern, Locale("ru", "RU")).parse(this)
@@ -31,6 +15,18 @@ fun String.toDate(pattern: String = "HH:mm:ss dd.MM.yy"): Date? = try {
 }
 
 fun Date.format(pattern: String = "HH:mm:ss dd.MM.yy"): String = SimpleDateFormat(pattern, Locale("ru")).format(this)
+
+fun Date.shortFormat(): String? {
+    val pattern = if (this.isSameDate(Date())) "HH:mm" else "dd.MM.yy"
+    val dateFormat = SimpleDateFormat(pattern, Locale("ru"))
+    return dateFormat.format(this)
+}
+
+fun Date.isSameDate(date: Date): Boolean {
+    val day1 = time / TimeUnits.DAY.durationInMs
+    val day2 = date.time / TimeUnits.DAY.durationInMs
+    return day1 == day2
+}
 
 fun Date.add(value: Int, timeUnit: TimeUnits = TimeUnits.SECOND) = apply { time += value * timeUnit.durationInMs }
 

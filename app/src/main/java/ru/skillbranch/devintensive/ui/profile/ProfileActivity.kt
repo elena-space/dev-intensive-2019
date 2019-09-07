@@ -92,6 +92,7 @@ class ProfileActivity : AppCompatActivity() {
                     .width(avatarPixelSize)
                     .height(avatarPixelSize)
                     .bold()
+                    .round()
                     .build())
         }
     }

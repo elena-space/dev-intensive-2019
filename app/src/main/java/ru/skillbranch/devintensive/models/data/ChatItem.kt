@@ -1,5 +1,7 @@
 package ru.skillbranch.devintensive.models.data
 
+import ru.skillbranch.devintensive.utils.ChatType
+
 
 data class ChatItem(val id: String,
                     val avatar: String?,

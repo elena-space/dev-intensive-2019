@@ -7,4 +7,8 @@
     <string name="profile_hint_last_name">Фамилия</string>
     <string name="profile_hint_first_name">Имя</string>
     <string name="error.repo_url_is_not_valid">Невалидный адрес репозитория</string>
+    <string name="menu_search_title">Поиск</string>
+    <string name="snackbar_archive_cancel">Отмена</string>
+    <string name="hint.enter_user_name">Введите имя пользователя</string>
+    <string name="title.create_group">Создание группы</string>
 </resources>

@@ -61,4 +61,10 @@
     <dimen name="profile_rounded_btn_margin_top">36dp</dimen>
     <dimen name="profile_divider_margin">5dp</dimen>
 
+    <dimen name="item_size">72dp</dimen>
+    <dimen name="avatar_item_size">40dp</dimen>
+    <dimen name="counter_size">20dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="item_chat_indicator_size">12dp</dimen>
+
 </resources>
